@@ -1,11 +1,20 @@
-#!/usr/bin/env python3
-from brain_games.game_logic import start_game
-from brain_games.games import gcd
+from random import randint
+
+DESCRIPTION = 'Answer "yes" if given number is prime. Otherwise answer "no".'
+MIN_NUMBER = 1
+MAX_NUMBER = 10
 
 
-def main():
-    start_game(gcd)
+def is_prime(num):
+    if num <= 1:
+        return False
+    divider = 2
+    while num % divider != 0:
+        divider += 1
+    return divider == num
 
 
-if __name__ == '__main__':
-    main()
+def generate_round():
+    num = randint(MIN_NUMBER, MAX_NUMBER)
+    correct_answer = 'yes' if is_prime(num) else 'no'
+    return str(num), 
